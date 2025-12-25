@@ -12,19 +12,27 @@ class User(DB):
         self.__name=name
         self.__godine=godine
 
-    def get_name(self):
+    @property
+    def name(self):
         return self.__name
-    def set_name(self,name):
+
+    @name.setter
+    def name(self,name):
         if len(name) < 3:
             raise ValueError("Ime mora imati minimum 3 karaktera")
         self.__name=name
-    def get_godine(self):
+
+    @property
+    def godine(self):
         return self.__godine
-    def set_godine(self,godine):
+
+    @godine.setter
+    def godine(self,godine):
         if godine < 18:
             raise ValueError("Korisnik mora biti punoletan")
         self.__godine=godine
 
 toma=User("Tomislav",18)
+
 
 
